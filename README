@@ -1,0 +1,55 @@
+# Copyright 2019 Ron Economos
+#
+# This file is part of gr-c66xfft
+#
+# gr-c66xfft is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3, or (at your option)
+# any later version.
+#
+# gr-c66xfft is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with gr-c66xfft; see the file COPYING.  If not, write to
+# the Free Software Foundation, Inc., 51 Franklin Street,
+# Boston, MA 02110-1301, USA.
+
+gr-c66xfft
+======
+
+Author: Ron Economos
+Email: <w6rz@comcast.net>
+
+The goal of this project is to build GNU Radio blocks that implement
+an FFT and FFT filter that uses OpenCL to offload the processing to
+the C66x DSPs on the BeagleBoard-X15 Texas Instruments AM5728 processor.
+Note that these blocks are for demonstration only and perform much worse
+than FFTW running on the AM5728 ARM Cortex-A15 processor.
+
+In order to run GNU Radio Companion as non-root, the following changes
+are required:
+
+1) sudo setcap cap_sys_rawio+ep /usr/bin/python2.7
+
+2) Edit /etc/init.d/ti-ipc-dra7xx and change the line:
+
+tiipclad_params="-g -l lad.txt"
+
+to:
+
+tiipclad_params="-l lad.txt -p 777".
+
+Build instructions:
+
+    mkdir build
+    cd build
+    cmake ../
+    make
+    sudo make install
+    sudo ldconfig
+
+Contributions are welcome!
+

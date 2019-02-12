@@ -1,0 +1,7 @@
+/*!
+ * \defgroup block GNU Radio C66XFFT C++ Signal Processing Blocks
+ * \brief All C++ blocks that can be used from the C66XFFT GNU Radio
+ *        module are listed here or in the subcategories below.
+ *
+ */
+
