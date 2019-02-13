@@ -35,7 +35,12 @@ namespace gr {
     namespace kernel {
 
       fft_filter_ccc_c66x::fft_filter_ccc_c66x(int decimation, const std::vector<gr_complex> &taps)
-        : d_fftsize(-1), d_decimation(decimation), d_xformed_taps(NULL)
+        : d_fftsize(-1), d_decimation(decimation),
+        d_xformed_taps(NULL),
+        w(NULL),
+        x(NULL),
+        y(NULL),
+        z(NULL)
       {
         set_taps(taps);
       }
